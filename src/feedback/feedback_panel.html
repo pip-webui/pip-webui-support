@@ -1,0 +1,161 @@
+<div class="pip-body tp24-flex">
+    <div class="pip-content" layout="column">
+        <md-progress-linear ng-show="transaction.busy()" md-mode="indeterminate"
+                            class="pip-progress-ontop"></md-progress-linear>
+
+        <form name="form" novalidate>
+            <md-input-container class="md-block hide-gt-xs">
+                <md-select ng-model="typeIndex" ng-disabled="transaction.busy()" aria-label="DROPDOWN">
+
+                    <md-option ng-repeat="action in typeCollection" value="{{ ::$index }}">
+                        {{ (action.title || action.name) | translate }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <pip-toggle-buttons ng-model="data.type"
+                                pip-buttons="typeCollection"
+                                class="bm16 hide-xs">
+            </pip-toggle-buttons>
+            <p class="tm0 bm16 text-small text-grey line-height-string"
+               ng-if="data.type=='feedback' || data.type=='support'">
+                {{::'FEEDBACK_HINT_FEEDBACK' | translate}}
+            </p>
+
+            <div ng-if="data.type=='copyright'">
+                <p class="tm0 bm16 text-small text-grey line-height-string">
+                    {{::'FEEDBACK_HINT_COPYRIGHT' | translate}}
+                </p>
+
+                <p class="tm0 bm16 text-small text-grey line-height-string">
+                    {{::'FEEDBACK_HINT_COPYRIGHT2' | translate }}
+                </p>
+            </div>
+
+            <div class="pip-ref-item">
+                <pip-avatar pip-party-id="$party.id"
+                            pip-party-name="$party.name"
+                            class="pip-pic pip-face"></pip-avatar>
+                <div class="pip-content">
+                    <p class="pip-title">{{$party.name}} </p>
+
+                    <p class="pip-subtitle">{{$party.email}}</p>
+                </div>
+            </div>
+
+            <div ng-if="data.type!='copyright'">
+                <md-input-container class="md-block" md-no-float>
+                    <input type="text" ng-model="data.title"
+                           ng-disabled="transaction.busy()"
+                           placeholder="{{:: 'SUBJECT' | translate}}"/>
+                </md-input-container>
+                <md-input-container class="md-block" md-no-float>
+                        <textarea ng-model="data.content" ng-disabled="transaction.busy()"
+                                  placeholder="{{::'FEEDBACK_MESSAGE'|translate}}">
+                        </textarea>
+                </md-input-container>
+            </div>
+
+            <div ng-if="data.type=='copyright'">
+                <md-input-container class="md-block">
+                    <label>{{::'FEEDBACK_COMPANY'|translate}}</label>
+                    <input type="text" ng-model="data.company_name"
+                           ng-disabled="transaction.busy()" placeholder="Company Name"/>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>{{::'FEEDBACK_ADDRESS'|translate}}</label>
+                    <input type="text" ng-model="data.company_addr"
+                           ng-disabled="transaction.busy()"/>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>{{::'FEEDBACK_COPYRIGHT_HOLDER' | translate}}</label>
+                    <input name="data.copyright_holder" ng-model="data.copyright_holder"
+                           ng-disabled="transaction.busy()"
+                           step="any" type="text" tabindex="0"
+                           required/>
+
+                    <div ng-messages="errorsWithHint(form.data.copyright_holder)">
+                        <div ng-message="hint">
+                            {{::'FEEDBACK_COPYRIGHT_HOLDER_HINT' | translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>{{::'FEEDBACK_ORIGINAL_LOCATION'|translate}}</label>
+                    <input type="text" ng-model="data.original_loc"
+                           ng-disabled="transaction.busy()"/>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>{{::'FEEDBACK_DESCRIBE_COPYRIGHTED' | translate}}</label>
+                    <input name="data.copyrighted_work" ng-model="data.copyrighted_work"
+                           ng-disabled="transaction.busy()"
+                           step="any" type="text" tabindex="0"
+                           required/>
+
+                    <div ng-messages="errorsWithHint(form.data.copyrighted_work)">
+                        <div ng-message="hint">
+                            {{::'FEEDBACK_DESCRIBE_COPYRIGHTED_HINT'| translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>{{::'FEEDBACK_UNAUTHORIZE_LOCATION' | translate}}</label>
+                        <textarea name="data.unauth_loc" ng-model="data.unauth_loc"
+                                  ng-disabled="transaction.busy()"
+                                  step="any" type="text" tabindex="0"
+                                  required></textarea>
+
+                    <div ng-messages="errorsWithHint(form.data.unauth_loc)">
+                        <div ng-message="hint">
+                            {{::'FEEDBACK_UNAUTHORIZE_LOCATION_HINT' | translate}}
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <div layout="row" class="bm16">
+                    <md-checkbox ng-model="data.copyright_conc" class="lm0 bm0 flex-fixed"
+                                 aria-label='FEEDBACK_COPYRIGHT_CONC' style="min-width: 24px; margin-top: -2px">
+                    </md-checkbox>
+                    <p class="m0 text-small text-grey line-height-string">
+                        {{::'FEEDBACK_COPYRIGHT_CONC'|translate}}
+                    </p>
+                </div>
+
+                <div layout="row" class="bm16">
+                    <md-checkbox ng-model="data.request_conc" class="lm0 bm0 flex-fixed"
+                                 aria-label="FEEDBACK_REGUEST_CONC" style="min-width: 24px; margin-top: -2px">
+                    </md-checkbox>
+                    <p class="m0 text-small text-grey line-height-string">
+                        {{::'FEEDBACK_REGUEST_CONC'|translate}}
+                    </p>
+                </div>
+
+                <md-input-container class="md-block">
+                    <label>{{::'FEEDBACK_SIGNATURE' | translate}}</label>
+                    <input name="data.signature" ng-model="data.signature" ng-disabled="transaction.busy()"
+                           step="any" type="text" tabindex="0"
+                           required/>
+
+                    <div ng-messages="errorsWithHint(form.data.signature)">
+                        <div ng-message="hint">{{::'FEEDBACK_SIGNATURE_HINT' | translate}}</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <pip-picture-list-edit class="bm8" ng-show="showPictures"
+                                   pip-picture-ids="data.pic_ids" pip-created="pictures = $event.sender"
+                                   ng-disabled="transaction.busy()">
+            </pip-picture-list-edit>
+
+            <pip-document-list-edit ng-show="showDocuments"
+                                    pip-documents="data.docs" pip-created="docs = $event.sender"
+                                    ng-disabled="transaction.busy()">
+            </pip-document-list-edit>
+        </form>
+    </div>
+</div>

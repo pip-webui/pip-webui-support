@@ -1,0 +1,32 @@
+<!--
+@file Feedback dialog
+@copyright Digital Living Software Corp. 2014-2016
+-->
+
+<md-dialog width="800" class="pip-feedback-dialog">
+    <md-dialog-content class="lp24-flex rp24-flex">
+        <pip-feedback-panel data="data" pip-created="$panel = $control"
+                            show-pictures="showPictures"
+                            show-documents="showDocuments"
+                            save-callback="saveCallback"
+                            type-collection="typeCollection"></pip-feedback-panel>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <pip-content-switch class="show-gt-sm"></pip-content-switch>
+
+        <div flex></div>
+
+        <div layout="row" class="flex-fixed">
+            <md-button ng-show="transaction.busy()" ng-click="transaction.abort()" class="md-raised md-warn">
+                {{::'CANCEL' | translate}}
+            </md-button>
+            <md-button ng-hide="transaction.busy()" ng-click="goBack()">
+                {{::'CANCEL' | translate}}
+            </md-button>
+            <md-button class="md-accent" ng-hide="transaction.busy()" ng-click="onSave()"
+                       ng-disabled="data.content == '' && data.title == ''">
+                {{::'SEND' | translate}}
+            </md-button>
+        </div>
+    </md-dialog-actions>
+</md-dialog>
