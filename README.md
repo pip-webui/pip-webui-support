@@ -1,4 +1,4 @@
-# Pip.WebUI Support Pages http://git.pipdevs.com/pip-webui/pip-webui-pages
+# Pip.WebUI Support Pages http://github.com/pip-webui/pip-webui-pages
 
 Support Web pages to be used in applications developed on Pip.Services platform
 
@@ -84,17 +84,17 @@ Change to your project's root directory.
 
 ```bash
 # To install only core services with dependencies.
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-lib.git
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-core.git
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-controls.git
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-rest.git
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-layouts.git
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-locations.git
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-pictures.git
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-documents.git
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-composite.git
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui-support.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-lib.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-core.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-controls.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-rest.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-layouts.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-locations.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-pictures.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-documents.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-composite.git
+npm install git+ssh://git@github.com:pip-core/pip-webui-support.git
 
 # To install the entire pip-webui library
-npm install git+ssh://git@git.pipdevs.com:pip-core/pip-webui.git
+npm install git+ssh://git@github.com:pip-core/pip-webui.git
 ```
