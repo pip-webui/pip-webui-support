@@ -32,18 +32,18 @@
 
             // Configure default states
             pipAuthStateProvider.unauthorizedState('signin');
-            pipAuthStateProvider.authorizedState('feedback');
+            pipAuthStateProvider.authorizedState('feedback_samples');
 
             $urlRouterProvider.otherwise(function ($injector, $location) {
                 if ($location.$$path == '') return '/signin';
-                else  return '/feedback';
+                else  return '/feedback_samples';
             });
 
             // Configure navigation menu
             pipSideNavProvider.sections([
                 {
                     links: [
-                        {title: 'Feedback', url: '/feedback'}
+                        {title: 'Feedback', url: '/feedback_samples'}
                     ]
                 },
                 {

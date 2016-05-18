@@ -42,6 +42,7 @@
     "pip-webui-pictures": "git+ssh://git@github.com:pip-webui/pip-webui-pictures.git",
     "pip-webui-documents": "git+ssh://git@github.com:pip-webui/pip-webui-documents.git",
     "pip-webui-composite": "git+ssh://git@github.com:pip-webui/pip-webui-composite.git",
+    "pip-webui-errors": "git+ssh://git@github.com:pip-webui/pip-webui-errors.git",
     "pip-webui-entry": "git+ssh://git@github.com:pip-webui/pip-webui-entry.git",
     "pip-webui-test": "git+ssh://git@github.com:pip-webui/pip-webui-test.git",
     "angular-mocks": "*",

@@ -17,7 +17,8 @@
         // Modules from WebUI Framework
         'pipCore', 'pipRest', 'pipData', 'pipBasicControls', 'pipLayout', 'pipNav',
          // Sample Application Modules
-        'pipEntry', 'pipRest.State', 'pipSupport'
+        'pipEntry', 'pipRest.State', 'pipSupport',
+        'pipFeedbackSamples',
     ]);
 
     thisModule.controller('pipSampleController',
