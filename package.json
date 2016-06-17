@@ -26,6 +26,7 @@
     "build": "gulp build",
     "jshint": "gulp jshint",
     "samples": "gulp launch",
+    "lint": "eslint ./src/**/*.js",
     "test": "mocha -t 5000 -R spec --recursive ./test"
   },
   "dependencies": {
@@ -67,6 +68,7 @@
     "gulp-merge": "*",
     "gulp-typescript": "*",
     "gulp-jshint": "*",
+    "gulp-eslint": "*",
     "gulp-replace": "*",
     "gulp-add-src": "*",
     "gulp-webserver": "*",
