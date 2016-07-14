@@ -1,10 +1,79 @@
-<h3>Feedback</h3>
-<div  class="h48" layout="row" layout-align="start center">
-    <md-button  ng-click="onFeedbackDialog($event)">
-        open feedback dialog
-    </md-button>
+<md-toolbar class="pip-appbar-ext">
+</md-toolbar>
 
-    <md-button  ng-click="onFeedbackPage($event)">
-        Open Feedback page
-    </md-button>
-</div>
+<pip-document >
+    <div class="pip-menu-container">
+        <div class="pip-content-container p24">
+            <h2 class="text-title tm0 bm24">{{ 'FEEDBACK' | translate }}</h2>
+            <h3 class="text-subhead2">{{:: 'FEEDBACK_DIALOG' | translate}}</h3>
+            <div>
+                <md-button class="lm0" ng-click="onFeedbackDialog($event)">
+                    {{ 'OPEN_FEEDBACK_DIALOG' | translate }}
+                </md-button>
+            </div>
+            <h3 class="text-subhead2">{{:: 'CODE' | translate}}</h3>
+<pre class="text-body1 color-window-bg p16">
+        <strong>JS: </strong>
+
+            <strong>$mdDialog.show</strong>{
+                    templateUrl: 'feedback/feedback_dialog.html',
+                    controller: 'FeedbackDialogController',
+                    targetEvent: event,
+                    locals: {party: $rootScope.$party}
+                }).then(
+                    function (answer) {
+                        if (answer) {
+                            var message = String() + 'SUCCESS';
+
+                            $scope.onShowToast(message, 'message');
+                        }
+                    });
+
+        <strong>HTML: </strong>
+                    &lt;md-dialog width="800" class="pip-feedback-dialog"&gt;
+                        &lt;md-dialog-content class="lp24-flex rp24-flex"&gt;
+                            &lt;<strong>pip-feedback-panel data="data" pip-created="$panel = $control"
+                                                show-pictures="showPictures"
+                                                show-documents="showDocuments"
+                                                save-callback="saveCallback"
+                                                type-collection="typeCollection"&gt;&lt;/pip-feedback-panel</strong>&gt;
+                        &lt;/md-dialog-content&gt;
+                        &lt;md-dialog-actions layout="row"&gt;
+                            &lt;pip-content-switch class="show-gt-sm"&gt;&lt;/pip-content-switch&gt;
+                    
+                            &lt;div flex&gt;&lt;/div&gt;
+                    
+                            &lt;div layout="row" class="flex-fixed"&gt;
+                                &lt;md-button ng-show="transaction.busy()" ng-click="transaction.abort()" class="md-raised md-warn"&gt;
+                                    {{::'CANCEL' | translate}}
+                                &lt;/md-button&gt;
+                                &lt;md-button ng-hide="transaction.busy()" ng-click="goBack()"&gt;
+                                    {{::'CANCEL' | translate}}
+                                &lt;/md-button&gt;
+                                &lt;md-button class="md-accent rm8" ng-hide="transaction.busy()" ng-click="onSave()"
+                                           ng-disabled="data.content == '' && data.title == ''"&gt;
+                                    {{::'SEND' | translate}}
+                                &lt;/md-button&gt;
+                            &lt;/div&gt;
+                        &lt;/md-dialog-actions&gt;
+                    &lt;/md-dialog&gt;
+
+</pre>
+
+            <md-divider class="tm8"></md-divider>
+
+            <h3 class="text-subhead2">{{:: 'FEEDBACK_PAGE' | translate}}</h3>
+            <div>
+                <md-button class="lm0" ng-click="onFeedbackPage($event)">
+                    {{ 'OPEN_FEEDBACK_PAGE' | translate }}
+                </md-button>
+            </div>
+            <h3 class="text-subhead2">{{:: 'CODE' | translate}}</h3>
+<pre class="text-body1 color-window-bg p16">
+        <strong>JS: </strong>
+
+            <strong>$state.go('feedback', {})</strong>
+</pre>
+        </div>
+    </div>
+</pip-document>

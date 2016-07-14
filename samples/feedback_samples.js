@@ -6,9 +6,33 @@
     thisModule.config(function (pipTranslateProvider, pipAuthStateProvider) {
 
         // Set translation strings for the module
-        pipTranslateProvider.translations('en', {});
+        pipTranslateProvider.translations('en', {
+            FEEDBACK: 'Feedback',
+            SUPPORT: 'Support',
+            COPYRIGHT: 'Copyright',
+            BUSINESS: 'Business',
+            ADVERTISING: 'Advertising',
+            SUBJECT: 'Subject',
+            FEEDBACK_DIALOG: 'Feedback dialog',
+            OPEN_FEEDBACK_DIALOG: 'Open feedback dialog',
+            FEEDBACK_PAGE: 'Feedback page',
+            OPEN_FEEDBACK_PAGE: 'Open feedback page',
+            SIGNOUT: 'Sign out'
+        });
 
-        pipTranslateProvider.translations('ru', {});
+        pipTranslateProvider.translations('ru', {
+            FEEDBACK: 'Обратная связь',
+            SUPPORT: 'Поддержка',
+            COPYRIGHT: 'Авторские права',
+            BUSINESS: 'Комерция',
+            ADVERTISING: 'Реклама',
+            SUBJECT: 'Предмет',
+            FEEDBACK_DIALOG: 'Диалог для отзыва',
+            OPEN_FEEDBACK_DIALOG: 'Открыть диалог для отзыва',
+            FEEDBACK_PAGE: 'Страница для отзыва',
+            OPEN_FEEDBACK_PAGE: 'Открыть страницу для отзыва',
+            SIGNOUT: 'Выход'
+        });
 
         // Configure module routes
         pipAuthStateProvider
@@ -51,9 +75,9 @@
             }
 
             function showAppBar() {
-                pipAppBar.hideNavIcon();
+                pipAppBar.showMenuNavIcon();
                 pipAppBar.showTitleText('FEEDBACK_TITLE');
-                pipAppBar.showLocalActions([], []);
+                pipAppBar.showLanguage();
 
                 pipAppBar.showShadowSm();
             }

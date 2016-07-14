@@ -41,12 +41,12 @@
             pipSideNavProvider.sections([
                 {
                     links: [
-                        {title: 'Feedback', url: '/feedback_samples'}
+                        {title: 'FEEDBACK', url: '/feedback_samples'}
                     ]
                 },
                 {
                     links: [
-                        {title: 'Signout', url: '/signout'}
+                        {title: 'SIGNOUT', url: '/signout'}
                     ]
                 }
             ]);
