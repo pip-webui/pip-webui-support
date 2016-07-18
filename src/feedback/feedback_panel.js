@@ -3,12 +3,10 @@
  * @copyright Digital Living Software Corp. 2014-2016
  */
 
-/* global angular */
-
-(function () {
+(function (angular) {
     'use strict';
 
-    var thisModule = angular.module("pipFeedbackPanel", ['pipUtils', 'pipFocused', 'pipSupport.Templates']);
+    var thisModule = angular.module('pipFeedbackPanel', ['pipUtils', 'pipFocused', 'pipSupport.Templates']);
 
     thisModule.directive('pipFeedbackPanel',
         function () {
@@ -17,11 +15,11 @@
                 replace: true,
                 scope: {
                     data: '=',
-                    created:'&pipCreated',
+                    created: '&pipCreated',
                     showPictures: '=',
                     showDocuments: '=',
-                    typeCollection:'=typeCollection',
-                    saveCallback:'='
+                    typeCollection: '=typeCollection',
+                    saveCallback: '='
                 },
                 templateUrl: 'feedback/feedback_panel.html',
                 controller: 'pipFeedbackPanelController'
@@ -29,10 +27,9 @@
             };
         }
     );
-    
     thisModule.controller('pipFeedbackPanelController',
         function ($scope, $rootScope, $state, pipUtils, pipAppBar, pipTranslate,
-                  pipFeedbacksData, pipTransaction, pipToasts, pipFormErrors, $mdDialog) {
+                  pipFeedbacksData, pipTransaction, pipToasts, pipFormErrors) {
 
             $scope.$party = $rootScope.$party;
             $scope.typeCollection = [
@@ -52,15 +49,13 @@
             $scope.data.sender_email = $rootScope.$party.email;
             $scope.data.pic_ids = [];
             $scope.data.docs = [];
-            $scope.data.type =  $scope.typeCollection[0].id;
-
-
+            $scope.data.type = $scope.typeCollection[0].id;
             $scope.$control = {};
             $scope.$control.goBack = pipUtils.goBack;
             $scope.$control.onSave = onSave;
             $scope.$control.onTypeChange = onTypeChange;
 
-            if ($scope.created){
+            if ($scope.created) {
                 $scope.created({
                     $control: $scope.$control
                 });
@@ -70,11 +65,13 @@
             $scope.onTypeChange = onTypeChange;
 
             return;
-            //-----------------------
+            // ------------------------------------------------------
 
             function onSave() {
                 $scope.form.$setSubmitted();
-                if ($scope.form.$invalid) return;
+                if ($scope.form.$invalid) {
+                    return;
+                }
 
                 pipFeedbacksData.createFeedbackWithFiles(
                     {
@@ -85,15 +82,12 @@
                     },
                     $scope.saveCallback
 
-                )
-            };
+                );
+            }
 
             function onTypeChange(type) {
                 $scope.data.type = $scope.typeCollection[$scope.typeIndex];
                 $scope.type = type.name;
             }
-
-
-        })
-
-})();
+        });
+})(window.angular);

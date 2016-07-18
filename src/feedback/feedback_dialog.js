@@ -10,8 +10,8 @@
 
     var thisModule = angular.module('pipFeedbackDialog', [
         'pipAppBar', 'pipRest.State', 'pipTransactions', 'pipRest', 'pipDropdown',
-        'ngMaterial', 'pipTranslate', 'pipFeedbacksData', 'pipToasts', 
-        'pipFeedback.Strings', "pipFeedbackPanel", 'pipSupport.Templates'
+        'ngMaterial', 'pipTranslate', 'pipFeedbacksData', 'pipToasts',
+        'pipFeedback.Strings', 'pipFeedbackPanel', 'pipSupport.Templates'
     ]);
 
     thisModule.controller('FeedbackDialogController',
@@ -35,19 +35,22 @@
             return;
 
             function onSave() {
-                if ($scope.$panel) $scope.$panel.onSave();
-            }
-            function onTypeChange() {
-                if ($scope.$panel) $scope.$panel.onTypeChange($scope.item);
+                if ($scope.$panel) {
+                    $scope.$panel.onSave();
+                }
             }
 
-            function saveCallback () {
+            function onTypeChange() {
+                if ($scope.$panel) {
+                    $scope.$panel.onTypeChange($scope.item);
+                }
+            }
+
+            function saveCallback() {
                 $mdDialog.cancel();
                 pipToasts.showNotification(pipTranslate.translate('FEEDBACK_SUCCESS'), null, null, null);
             }
-
-
         }
     );
-    
+
 })();
