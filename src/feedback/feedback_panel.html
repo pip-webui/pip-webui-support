@@ -1,5 +1,5 @@
 <div class="pip-body tp24-flex">
-    <div class="pip-content" layout="column">
+    <div class="pip-content layout-column">
         <md-progress-linear ng-show="transaction.busy()" md-mode="indeterminate"
                             class="pip-progress-ontop"></md-progress-linear>
 
@@ -83,7 +83,7 @@
                     </div>
                 </md-input-container>
 
-                <md-input-container class="md-block" flex>
+                <md-input-container class="md-block flex">
                     <label>{{::'FEEDBACK_ORIGINAL_LOCATION'|translate}}</label>
                     <input type="text" ng-model="data.original_loc"
                            ng-disabled="transaction.busy()"/>
@@ -117,7 +117,7 @@
                     </div>
                 </md-input-container>
 
-                <div layout="row" class="bm16">
+                <div class="bm16 layout-row">
                     <md-checkbox ng-model="data.copyright_conc" class="lm0 bm0 flex-fixed"
                                  aria-label='FEEDBACK_COPYRIGHT_CONC' style="min-width: 24px; margin-top: -2px">
                     </md-checkbox>
@@ -126,7 +126,7 @@
                     </p>
                 </div>
 
-                <div layout="row" class="bm16">
+                <div class="bm16 layout-row">
                     <md-checkbox ng-model="data.request_conc" class="lm0 bm0 flex-fixed"
                                  aria-label="FEEDBACK_REGUEST_CONC" style="min-width: 24px; margin-top: -2px">
                     </md-checkbox>

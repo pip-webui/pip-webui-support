@@ -11,12 +11,12 @@
                             save-callback="saveCallback"
                             type-collection="typeCollection"></pip-feedback-panel>
     </md-dialog-content>
-    <md-dialog-actions layout="row">
+    <md-dialog-actions class="layout-row">
         <pip-content-switch class="show-gt-sm"></pip-content-switch>
 
-        <div flex></div>
+        <div class="flex"></div>
 
-        <div layout="row" class="flex-fixed">
+        <div class="layout-row flex-fixed">
             <md-button ng-show="transaction.busy()" ng-click="transaction.abort()" class="md-raised md-warn">
                 {{::'CANCEL' | translate}}
             </md-button>

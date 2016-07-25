@@ -38,12 +38,12 @@
                                                 save-callback="saveCallback"
                                                 type-collection="typeCollection"&gt;&lt;/pip-feedback-panel</strong>&gt;
                         &lt;/md-dialog-content&gt;
-                        &lt;md-dialog-actions layout="row"&gt;
+                        &lt;md-dialog-actions class="layout-row"&gt;
                             &lt;pip-content-switch class="show-gt-sm"&gt;&lt;/pip-content-switch&gt;
                     
-                            &lt;div flex&gt;&lt;/div&gt;
+                            &lt;div class="flex"&gt;&lt;/div&gt;
                     
-                            &lt;div layout="row" class="flex-fixed"&gt;
+                            &lt;div class="flex-fixed layout-row"&gt;
                                 &lt;md-button ng-show="transaction.busy()" ng-click="transaction.abort()" class="md-raised md-warn"&gt;
                                     {{::'CANCEL' | translate}}
                                 &lt;/md-button&gt;

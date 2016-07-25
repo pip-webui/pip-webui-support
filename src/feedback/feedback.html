@@ -15,9 +15,9 @@
     <div class="pip-footer">
         <pip-content-switch class="hide-xs"></pip-content-switch>
 
-        <div flex></div>
+        <div class="flex"></div>
 
-        <div layout="row" class="flex-fixed">
+        <div class="flex-fixed layout-row">
             <md-button ng-show="transaction.busy()" ng-click="transaction.abort()" class="md-raised md-warn">
                 {{::'CANCEL' | translate}}
             </md-button>
