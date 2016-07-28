@@ -1,11 +1,14 @@
-<a name="1.0.0"></a>
-### 1.0.0 (2016-05-01)
+# Pip.WebUI.Support Changelog
 
-#### Features
-* **feedback** User feedback page and dialog
+## <a name="1.0.0"></a> 1.0.0 (2016-07-30)
 
-#### Breaking Changes
-* API in most controls was changed since the previous version
+Initial release with user feedback page
 
-#### Bug Fixes
+### Features
+* **feedback**: user feedback page and dialog
+
+### Breaking Changes
+No breaking changes in this version
+
+### Bug Fixes
 No fixes in this version 
