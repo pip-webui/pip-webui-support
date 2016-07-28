@@ -8,6 +8,8 @@ new product releases, collecting feedback from users, conducting surveys to clar
 Pip.WebUI.Support module implements pages to enable user support in Enterprise applications. In the current version it only
 contains Feedback page. But there are plans to add more in the upcoming releases.
 
+In Addition to open communication mechanisms, the module supports integration with Google Analytics to collect information on users behaviors in background.
+
 ### Users Feedback
 
 The **Feedback** is available as a panel, that can be embedded into your custom page, as page and as dialog. It lets users to send to support team messages with their feedback, ideas or report various issues. It requires presence of **users** and **feedbacks** REST API.  
@@ -15,6 +17,16 @@ The **Feedback** is available as a panel, that can be embedded into your custom 
 <a href="doc/images/img-feedback-page.png" style="border: 3px ridge #c8d2df; width: 50%; margin: auto; display: block">
     <img src="doc/images/img-feedback-page.png"/>
 </a>
+
+### pipAnalytics service
+
+The service allows to track user actions and reports them to Google Analytics. Page transitions are tracked automatically when **pipAnalytics** module is registered in the application. To track various events like clicks, scroll to certain position, etc. developer shall explicitely call **event** method.
+
+```javascript
+angular.module('myApp', [..., 'pipAnalytics']);
+...
+// Todo: show how to track events
+```
 
 ## Learn more about the module
 
