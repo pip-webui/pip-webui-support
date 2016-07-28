@@ -1,145 +1,46 @@
-# Pip.WebUI Support Pages module
+# <img src="https://github.com/pip-webui/pip-webui/blob/master/doc/Logo.png" alt="Pip.WebUI Logo" style="max-width:30%"> <br/> Product support pages
 
-Support Pages is a sub-module for Pip.Services platform and can be used in applications
-based on the platform.
+![](https://img.shields.io/badge/license-MIT-blue.svg)
 
-This module provides next functionality:
+Maintaining bi-directional communication with users is critical for product success. It may include showing announces about 
+new product releases, collecting feedback from users, conducting surveys to clarify users problems and needs.
 
-* User feedback page
+Pip.WebUI.Support module implements pages to enable user support in Enterprise applications. In the current version it only
+contains Feedback page. But there are plans to add more in the upcoming releases.
 
-This module provides two modes: dialog window and separated page.
-Into into this module injected Google Analytics to collect statistic info about sent feedback. Internationalization is also
-supported.
+### Users Feedback
 
-In the version 1.0.0 the implementation was cleaned up and covered with unit tests.
-Implementation became fully portable across browser and devices.
+The **Feedback** is available as a panel, that can be embedded into your custom page, as page and as dialog. It lets users to send to support team messages with their feedback, ideas or report various issues. It requires presence of **users** and **feedbacks** REST API.  
 
-
-### The complete library
-
- * [https://github.com/pip-webui/pip-webui](https://github.com/pip-webui/pip-webui)
-
-## Demos
-
-[Examples Online](http://webui.pipdevs.com/pip-webui-support/index.html)
-
-
-## Quick links
-
-* [Module dependencies](#dependencies)
-* [Module Components](#components)
-  - ['Feedback' page](#feedback)
-* [Browsers compatibility](#compatibility)
-* [Community](#community)
-* [Contributing](#contributing)
-* [Build](#build)
-* [License](#license)
-
-
-## <a name="dependencies"></a>Module dependencies
-
-* <a href="https://github.com/pip-webui/pip-webui-core">pip-webui-core</a> - Core platform module
-* <a href="https://github.com/pip-webui/pip-webui-nav">pip-webui-nav</a> - All-sufficient UI navigation components
-* <a href="https://github.com/pip-webui/pip-webui-controls">pip-webui-controls</a> - Assets of control components
-
-Another modules needed for example running:
-
-* <a href="https://github.com/pip-webui/pip-webui-tasks">pip-webui-tasks</a> - Helpful tasks for development
-* <a href="https://github.com/pip-webui/pip-webui-lib">pip-webui-lib</a> - Vendor libraries
-* <a href="https://github.com/pip-webui/pip-webui-css">pip-webui-css</a> - CSS Framework
-* <a href="https://github.com/pip-webui/pip-webui-rest">pip-webui-rest</a> - REST API module
-* <a href="https://github.com/pip-webui/pip-webui-layouts">pip-webui-layouts</a> - Document layouts
-* <a href="https://github.com/pip-webui/pip-webui-locations">pip-webui-locations</a> - UI components to define and show users location
-* <a href="https://github.com/pip-webui/pip-webui-pictures">pip-webui-pictures</a> - UI picture components
-* <a href="https://github.com/pip-webui/pip-webui-entry">pip-webui-entry</a> - All-sufficient UI component for any authenticate states
-* <a href="https://github.com/pip-webui/pip-webui-test">pip-webui-test</a> - Provides mocked data needed for unit testing
-
-
-## <a name="components"></a>Module components
-
-### <a name="feedback"></a>'Support' page
 <a href="doc/images/img-feedback-page.png" style="border: 3px ridge #c8d2df; width: 50%; margin: auto; display: block">
     <img src="doc/images/img-feedback-page.png"/>
 </a>
 
-This page provides document with several feedback purposes. It can be open like a separate page or a dialog window.
+## Learn more about the module
 
+- [User's guide](doc/UsersGuide.md)
+- [Online samples](http://webui.pipdevs.com/pip-webui-support/index.html)
+- [API reference](http://webui-api.pipdevs.com/pip-webui-support/index.html)
+- [Developer's guide](doc/DevelopersGuide.md)
+- [Changelog](CHANGELOG.md)
+- [Pip.WebUI project website](http://www.pipwebui.org)
+- [Pip.WebUI project wiki](https://github.com/pip-webui/pip-webui/wiki)
+- [Pip.WebUI discussion forum](https://groups.google.com/forum/#!forum/pip-webui)
+- [Pip.WebUI team blog](https://pip-webui.blogspot.com/)
 
-Support component [API reference](http://link.com)
+## <a name="dependencies"></a>Module dependencies
 
-[Online Example](http://localhost:8031/samples/index.html#/feedback)
-
-
-## <a name="compatibility"></a>Compatibility
-
-PIP.WEBUI has been thoroughly tested against all major browsers and supports:
-
- * IE11+,
- * Edge
- * Chrome 47+,
- * Firefox 43
- * Opera 35
-
-## <a name="community"></a>Community
-
-* Follow [@pip.webui on Twitter](http://link.com)
-* Subscribe to the [PIP.WebUI Newsletter](http://link.com)
-* Have a question that's not a feature request or bug report? Discuss on the [PIP Forum](https://groups.google.com/forum/#!forum/pipdevs)
-* Have a feature request or find a bug? [Submit an issue](http://link.com)
-* Join our Community Slack Group! [PIP Worldwide](http://link.com)
-
-
-## <a name="contributing"></a>Contributing
-
-Developers interested in contributing should read the following guidelines:
-
-* [Issue Guidelines](http://somelink.com)
-* [Contributing Guidelines](http://somelink.com)
-* [Coding guidelines](http://somelink.com)
-
-> Please do **not** ask general questions in an issue. Issues are only to report bugs, request
-  enhancements, or request new features. For general questions and discussions, use the
-  [Pip Devs Forum](https://groups.google.com/forum/#!forum/pipdevs).
-
-It is important to note that for each release, the [ChangeLog](CHANGELOG.md) is a resource that will
-itemize all:
-
-- Bug Fixes
-- New Features
-- Breaking Changes
-
-## <a name="build"></a>Build
-
-Projects environment deploy is occurred using npm and gulp.
-
-First install or update your local project's **npm** tools:
-
-```bash
-# First install all the NPM tools:
-npm install
-
-# Or update
-npm update
-```
-
-Then run the **gulp** tasks:
-
-```bash
-# To clean '/build' and '/dist' directories
-gulp clean
-
-# To build distribution files in the `/dist` directory
-gulp build
-
-# To launch samples (build will open samples/index page in web browser)
-gulp launch
-```
-
-For more details on how the build process works and additional commands (available for testing and
-debugging) developers should read the [Build Instructions](docs/guides/BUILD.md).
-
+* [pip-webui-lib](https://github.com/pip-webui/pip-webui-lib): angular, angular material and other 3rd party libraries
+* [pip-webui-css](https://github.com/pip-webui/pip-webui-css): CSS styles and web components
+* [pip-webui-core](https://github.com/pip-webui/pip-webui-core): localization and other core services
+* [pip-webui-rest](https://github.com/pip-webui/pip-webui-rest): REST resources for users and feedbacks
+* [pip-webui-controls](https://github.com/pip-webui/pip-webui-controls): toggle buttons control
+* [pip-webui-layouts](https://github.com/pip-webui/pip-webui-layouts): document layout
+* [pip-webui-nav](https://github.com/pip-webui/pip-webui-nav): navigation dropdown
+* [pip-webui-pictures](https://github.com/pip-webui/pip-webui-pictures): picture attachments
+* [pip-webui-documents](https://github.com/pip-webui/pip-webui-documents): document attachments
+* [pip-webui-composite](https://github.com/pip-webui/pip-webui-composite): content switch control
 
 ## <a name="license"></a>License
 
-PIP.WebUI is under [MIT licensed](LICENSE).
-
+This module is released under [MIT license](License) and totally free for commercial and non-commercial use.
