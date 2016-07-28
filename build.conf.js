@@ -1,7 +1,7 @@
 module.exports = {
     module: {
         name: 'pipSupport',
-        index: 'support'
+        styles: 'support'
     },
     build: {
         js: true,
@@ -9,10 +9,11 @@ module.exports = {
         html: true,
         css: true,
         lib: true,
-        images: true
+        images: true,
+        dist: false
     },
     file: {
-        import: [
+        lib: [
             '../pip-webui-test/dist/**/*',
             '../pip-webui-lib/dist/**/*',
             '../pip-webui-css/dist/**/*',
@@ -32,5 +33,11 @@ module.exports = {
             // '../pip-webui-support/dist/**/*',
             '../pip-webui-help/dist/**/*'
         ]
+    },
+    samples: {
+        port: 8180
+    },
+    api: {
+        port: 8181
     }
 };
