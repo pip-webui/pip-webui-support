@@ -38,9 +38,9 @@ module.run(['$templateCache', function($templateCache) {
     '    <div class="pip-footer">\n' +
     '        <pip-content-switch class="hide-xs"></pip-content-switch>\n' +
     '\n' +
-    '        <div flex></div>\n' +
+    '        <div class="flex"></div>\n' +
     '\n' +
-    '        <div layout="row" class="flex-fixed">\n' +
+    '        <div class="flex-fixed layout-row">\n' +
     '            <md-button ng-show="transaction.busy()" ng-click="transaction.abort()" class="md-raised md-warn">\n' +
     '                {{::\'CANCEL\' | translate}}\n' +
     '            </md-button>\n' +
@@ -79,19 +79,19 @@ module.run(['$templateCache', function($templateCache) {
     '                            save-callback="saveCallback"\n' +
     '                            type-collection="typeCollection"></pip-feedback-panel>\n' +
     '    </md-dialog-content>\n' +
-    '    <md-dialog-actions layout="row">\n' +
+    '    <md-dialog-actions class="layout-row">\n' +
     '        <pip-content-switch class="show-gt-sm"></pip-content-switch>\n' +
     '\n' +
-    '        <div flex></div>\n' +
+    '        <div class="flex"></div>\n' +
     '\n' +
-    '        <div layout="row" class="flex-fixed">\n' +
+    '        <div class="layout-row flex-fixed">\n' +
     '            <md-button ng-show="transaction.busy()" ng-click="transaction.abort()" class="md-raised md-warn">\n' +
     '                {{::\'CANCEL\' | translate}}\n' +
     '            </md-button>\n' +
     '            <md-button ng-hide="transaction.busy()" ng-click="goBack()">\n' +
     '                {{::\'CANCEL\' | translate}}\n' +
     '            </md-button>\n' +
-    '            <md-button class="md-accent" ng-hide="transaction.busy()" ng-click="onSave()"\n' +
+    '            <md-button class="md-accent rm8" ng-hide="transaction.busy()" ng-click="onSave()"\n' +
     '                       ng-disabled="data.content == \'\' && data.title == \'\'">\n' +
     '                {{::\'SEND\' | translate}}\n' +
     '            </md-button>\n' +
@@ -111,7 +111,7 @@ try {
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('feedback/feedback_panel.html',
     '<div class="pip-body tp24-flex">\n' +
-    '    <div class="pip-content" layout="column">\n' +
+    '    <div class="pip-content layout-column">\n' +
     '        <md-progress-linear ng-show="transaction.busy()" md-mode="indeterminate"\n' +
     '                            class="pip-progress-ontop"></md-progress-linear>\n' +
     '\n' +
@@ -195,7 +195,7 @@ module.run(['$templateCache', function($templateCache) {
     '                    </div>\n' +
     '                </md-input-container>\n' +
     '\n' +
-    '                <md-input-container class="md-block" flex>\n' +
+    '                <md-input-container class="md-block flex">\n' +
     '                    <label>{{::\'FEEDBACK_ORIGINAL_LOCATION\'|translate}}</label>\n' +
     '                    <input type="text" ng-model="data.original_loc"\n' +
     '                           ng-disabled="transaction.busy()"/>\n' +
@@ -229,7 +229,7 @@ module.run(['$templateCache', function($templateCache) {
     '                    </div>\n' +
     '                </md-input-container>\n' +
     '\n' +
-    '                <div layout="row" class="bm16">\n' +
+    '                <div class="bm16 layout-row">\n' +
     '                    <md-checkbox ng-model="data.copyright_conc" class="lm0 bm0 flex-fixed"\n' +
     '                                 aria-label=\'FEEDBACK_COPYRIGHT_CONC\' style="min-width: 24px; margin-top: -2px">\n' +
     '                    </md-checkbox>\n' +
@@ -238,7 +238,7 @@ module.run(['$templateCache', function($templateCache) {
     '                    </p>\n' +
     '                </div>\n' +
     '\n' +
-    '                <div layout="row" class="bm16">\n' +
+    '                <div class="bm16 layout-row">\n' +
     '                    <md-checkbox ng-model="data.request_conc" class="lm0 bm0 flex-fixed"\n' +
     '                                 aria-label="FEEDBACK_REGUEST_CONC" style="min-width: 24px; margin-top: -2px">\n' +
     '                    </md-checkbox>\n' +
@@ -458,8 +458,8 @@ module.run(['$templateCache', function($templateCache) {
 
     var thisModule = angular.module('pipFeedbackDialog', [
         'pipAppBar', 'pipRest.State', 'pipTransactions', 'pipRest', 'pipDropdown',
-        'ngMaterial', 'pipTranslate', 'pipFeedbacksData', 'pipToasts', 
-        'pipFeedback.Strings', "pipFeedbackPanel", 'pipSupport.Templates'
+        'ngMaterial', 'pipTranslate', 'pipFeedbacksData', 'pipToasts',
+        'pipFeedback.Strings', 'pipFeedbackPanel', 'pipSupport.Templates'
     ]);
 
     thisModule.controller('FeedbackDialogController',
@@ -483,33 +483,35 @@ module.run(['$templateCache', function($templateCache) {
             return;
 
             function onSave() {
-                if ($scope.$panel) $scope.$panel.onSave();
-            }
-            function onTypeChange() {
-                if ($scope.$panel) $scope.$panel.onTypeChange($scope.item);
+                if ($scope.$panel) {
+                    $scope.$panel.onSave();
+                }
             }
 
-            function saveCallback () {
+            function onTypeChange() {
+                if ($scope.$panel) {
+                    $scope.$panel.onTypeChange($scope.item);
+                }
+            }
+
+            function saveCallback() {
                 $mdDialog.cancel();
                 pipToasts.showNotification(pipTranslate.translate('FEEDBACK_SUCCESS'), null, null, null);
             }
-
-
         }]
     );
-    
+
 })();
+
 /**
  * @file Announcement details module
  * @copyright Digital Living Software Corp. 2014-2016
  */
 
-/* global angular */
-
-(function () {
+(function (angular) {
     'use strict';
 
-    var thisModule = angular.module("pipFeedbackPanel", ['pipUtils', 'pipFocused', 'pipSupport.Templates']);
+    var thisModule = angular.module('pipFeedbackPanel', ['pipUtils', 'pipFocused', 'pipSupport.Templates']);
 
     thisModule.directive('pipFeedbackPanel',
         function () {
@@ -518,11 +520,11 @@ module.run(['$templateCache', function($templateCache) {
                 replace: true,
                 scope: {
                     data: '=',
-                    created:'&pipCreated',
+                    created: '&pipCreated',
                     showPictures: '=',
                     showDocuments: '=',
-                    typeCollection:'=typeCollection',
-                    saveCallback:'='
+                    typeCollection: '=typeCollection',
+                    saveCallback: '='
                 },
                 templateUrl: 'feedback/feedback_panel.html',
                 controller: 'pipFeedbackPanelController'
@@ -530,10 +532,9 @@ module.run(['$templateCache', function($templateCache) {
             };
         }
     );
-    
     thisModule.controller('pipFeedbackPanelController',
-        ['$scope', '$rootScope', '$state', 'pipUtils', 'pipAppBar', 'pipTranslate', 'pipFeedbacksData', 'pipTransaction', 'pipToasts', 'pipFormErrors', '$mdDialog', function ($scope, $rootScope, $state, pipUtils, pipAppBar, pipTranslate,
-                  pipFeedbacksData, pipTransaction, pipToasts, pipFormErrors, $mdDialog) {
+        ['$scope', '$rootScope', '$state', 'pipUtils', 'pipAppBar', 'pipTranslate', 'pipFeedbacksData', 'pipTransaction', 'pipToasts', 'pipFormErrors', function ($scope, $rootScope, $state, pipUtils, pipAppBar, pipTranslate,
+                  pipFeedbacksData, pipTransaction, pipToasts, pipFormErrors) {
 
             $scope.$party = $rootScope.$party;
             $scope.typeCollection = [
@@ -553,15 +554,13 @@ module.run(['$templateCache', function($templateCache) {
             $scope.data.sender_email = $rootScope.$party.email;
             $scope.data.pic_ids = [];
             $scope.data.docs = [];
-            $scope.data.type =  $scope.typeCollection[0].id;
-
-
+            $scope.data.type = $scope.typeCollection[0].id;
             $scope.$control = {};
             $scope.$control.goBack = pipUtils.goBack;
             $scope.$control.onSave = onSave;
             $scope.$control.onTypeChange = onTypeChange;
 
-            if ($scope.created){
+            if ($scope.created) {
                 $scope.created({
                     $control: $scope.$control
                 });
@@ -571,11 +570,13 @@ module.run(['$templateCache', function($templateCache) {
             $scope.onTypeChange = onTypeChange;
 
             return;
-            //-----------------------
+            // ------------------------------------------------------
 
             function onSave() {
                 $scope.form.$setSubmitted();
-                if ($scope.form.$invalid) return;
+                if ($scope.form.$invalid) {
+                    return;
+                }
 
                 pipFeedbacksData.createFeedbackWithFiles(
                     {
@@ -586,18 +587,16 @@ module.run(['$templateCache', function($templateCache) {
                     },
                     $scope.saveCallback
 
-                )
-            };
+                );
+            }
 
             function onTypeChange(type) {
                 $scope.data.type = $scope.typeCollection[$scope.typeIndex];
                 $scope.type = type.name;
             }
+        }]);
+})(window.angular);
 
-
-        }])
-
-})();
 /**
  *  @file String resources for Feedback page
  *  @copyright Digital Living Software Corp. 2014-2016
