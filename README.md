@@ -14,8 +14,8 @@ In Addition to open communication mechanisms, the module supports integration wi
 
 The **Feedback** is available as a panel, that can be embedded into your custom page, as page and as dialog. It lets users to send to support team messages with their feedback, ideas or report various issues. It requires presence of **users** and **feedbacks** REST API.  
 
-<a href="doc/images/img-feedback-page.png" style="border: 3px ridge #c8d2df; width: 50%; margin: auto; display: block">
-    <img src="doc/images/img-feedback-page.png"/>
+<a href="https://github.com/pip-webui/pip-webui-support/raw/master/doc/images/img-feedback-page.png" style="border: 3px ridge #c8d2df; width: 50%; margin: auto; display: block">
+    <img src="https://github.com/pip-webui/pip-webui-support/raw/master/doc/images/img-feedback-page.png"/>
 </a>
 
 ### pipAnalytics service
@@ -30,11 +30,11 @@ angular.module('myApp', [..., 'pipAnalytics']);
 
 ## Learn more about the module
 
-- [User's guide](doc/UsersGuide.md)
+- [User's guide](https://github.com/pip-webui/pip-webui-support/blob/master/doc/UsersGuide.md)
 - [Online samples](http://webui.pipdevs.com/pip-webui-support/index.html)
 - [API reference](http://webui-api.pipdevs.com/pip-webui-support/index.html)
-- [Developer's guide](doc/DevelopersGuide.md)
-- [Changelog](CHANGELOG.md)
+- [Developer's guide](https://github.com/pip-webui/pip-webui-support/blob/master/doc/DevelopersGuide.md)
+- [Changelog](https://github.com/pip-webui/pip-webui-support/blob/master/CHANGELOG.md)
 - [Pip.WebUI project website](http://www.pipwebui.org)
 - [Pip.WebUI project wiki](https://github.com/pip-webui/pip-webui/wiki)
 - [Pip.WebUI discussion forum](https://groups.google.com/forum/#!forum/pip-webui)
