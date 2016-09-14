@@ -29,7 +29,7 @@
     );
     thisModule.controller('pipFeedbackPanelController',
         function ($scope, $rootScope, $state, pipUtils, pipAppBar, pipTranslate,
-                  pipFeedbacksData, pipTransaction, pipToasts, pipFormErrors) {
+                  pipDataFeedback, pipTransaction, pipToasts, pipFormErrors) {
 
             $scope.$party = $rootScope.$party;
             $scope.typeCollection = [
@@ -73,7 +73,7 @@
                     return;
                 }
 
-                pipFeedbacksData.createFeedbackWithFiles(
+                pipDataFeedback.createFeedbackWithFiles(
                     {
                         transaction: $scope.transaction,
                         pictures: $scope.pictures,

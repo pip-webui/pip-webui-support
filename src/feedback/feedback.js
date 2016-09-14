@@ -10,7 +10,7 @@
 
     var thisModule = angular.module('pipFeedback', [
         'pipAppBar', 'pipRest.State', 'pipTransactions', 'pipRest', 'pipDropdown',
-        'ngMaterial', 'pipTranslate', 'pipFeedbacksData', 'pipToasts', 
+        'ngMaterial', 'pipTranslate', 'pipDataFeedback', 'pipToasts', 
         'pipFeedback.Strings', "pipFeedbackPanel", 'pipSupport.Templates'
     ]);
 

@@ -379,7 +379,7 @@ module.run(['$templateCache', function($templateCache) {
 
     var thisModule = angular.module('pipFeedback', [
         'pipAppBar', 'pipRest.State', 'pipTransactions', 'pipRest', 'pipDropdown',
-        'ngMaterial', 'pipTranslate', 'pipFeedbacksData', 'pipToasts', 
+        'ngMaterial', 'pipTranslate', 'pipDataFeedback', 'pipToasts', 
         'pipFeedback.Strings', "pipFeedbackPanel", 'pipSupport.Templates'
     ]);
 
@@ -458,7 +458,7 @@ module.run(['$templateCache', function($templateCache) {
 
     var thisModule = angular.module('pipFeedbackDialog', [
         'pipAppBar', 'pipRest.State', 'pipTransactions', 'pipRest', 'pipDropdown',
-        'ngMaterial', 'pipTranslate', 'pipFeedbacksData', 'pipToasts',
+        'ngMaterial', 'pipTranslate', 'pipDataFeedback', 'pipToasts',
         'pipFeedback.Strings', 'pipFeedbackPanel', 'pipSupport.Templates'
     ]);
 
@@ -533,8 +533,8 @@ module.run(['$templateCache', function($templateCache) {
         }
     );
     thisModule.controller('pipFeedbackPanelController',
-        ['$scope', '$rootScope', '$state', 'pipUtils', 'pipAppBar', 'pipTranslate', 'pipFeedbacksData', 'pipTransaction', 'pipToasts', 'pipFormErrors', function ($scope, $rootScope, $state, pipUtils, pipAppBar, pipTranslate,
-                  pipFeedbacksData, pipTransaction, pipToasts, pipFormErrors) {
+        ['$scope', '$rootScope', '$state', 'pipUtils', 'pipAppBar', 'pipTranslate', 'pipDataFeedback', 'pipTransaction', 'pipToasts', 'pipFormErrors', function ($scope, $rootScope, $state, pipUtils, pipAppBar, pipTranslate,
+                  pipDataFeedback, pipTransaction, pipToasts, pipFormErrors) {
 
             $scope.$party = $rootScope.$party;
             $scope.typeCollection = [
@@ -578,7 +578,7 @@ module.run(['$templateCache', function($templateCache) {
                     return;
                 }
 
-                pipFeedbacksData.createFeedbackWithFiles(
+                pipDataFeedback.createFeedbackWithFiles(
                     {
                         transaction: $scope.transaction,
                         pictures: $scope.pictures,
